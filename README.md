@@ -1,6 +1,6 @@
 # Shrey Singh
 
-**Founder / Program Director. I run executive education programs with IITs and IIMs, and I build the software that runs them.**
+**I run executive education and professional certification programs, and I build the software that runs them.**
 
 Most of what I ship lives in private repositories because it carries learner data, institution branding, and partner integrations that I cannot open-source. This page is the tour of what is behind the wall.
 
@@ -8,7 +8,7 @@ Most of what I ship lives in private repositories because it carries learner dat
 
 ## What I do
 
-I design, launch, and operate professional certification programs for working professionals, in partnership with institutions such as **IIT Patna, IIM Trichy, NITK Surathkal, and IIT Jammu**. That means owning the whole funnel and the whole delivery stack:
+I design, launch, and operate professional certification programs for working professionals, delivered in partnership with universities and institutes. That means owning the whole funnel and the whole delivery stack:
 
 - Landing pages and lead capture that feed a CRM within seconds
 - Counsellor routing, call analytics, and sales coaching driven by transcripts
@@ -25,12 +25,12 @@ I write most of this myself in TypeScript and Node, with Python where it fits, a
 ### Operations platforms
 
 **LearnOS + Sales Module** · React, Vite, Hono, Supabase, Resend · private
-Internal operations platform for 8+ certification programs across partner universities. Two modules on one backend and one auth layer. LearnOS handles the learner lifecycle: enrolment, Zoom attendance, refunds, batch transfers, tickets, KYC and custom forms, Q&A boards. The Sales Module ingests MCube call recordings, transcribes them with Whisper, analyses each pitch with GPT-4o, and lets team leads see their full reporting tree. Role-based access for admin, ops, counsellor, and sales. Live in production.
+Internal operations platform for 8+ certification programs across partner universities. Two modules on one backend and one auth layer. LearnOS handles the learner lifecycle: enrolment, Zoom attendance, refunds, batch transfers, tickets, KYC and custom forms, Q&A boards. The Sales Module ingests MCube call recordings, transcribes them with Whisper, analyses each pitch with GPT-4o, and lets team leads see their full reporting tree. Role-based access for admin, ops, counsellor, and sales. Live in production for internal teams.
 
 **Cortex** · Hono, Inngest, Next.js 15, Neon Postgres with pgvector, Clerk, Claude · private
 A multi-tenant "company brain" for edtech. Every tool a cohort runs on (Tally, Razorpay, Zoom, AiSensy, Meta lead ads, Sheets, Gmail, Slack) posts into Cortex via webhooks. Records are normalised into edtech-native entities: leads, applications, students, cohorts, payments, sessions, mentors. Agents then score applications, monitor engagement, flag dropout risk, chase payments, and write the Monday briefing. Monorepo with a strict logging protocol and a documented security posture.
 
-**GenAI Certifications LMS** · Moodle 4.5 LTS, Docker Compose, Caddy, MariaDB · private
+**Program LMS** · Moodle 4.5 LTS, Docker Compose, Caddy, MariaDB · private
 Production LMS on a hardened Ubuntu VPS in India, serving institution-branded programs. Auto-TLS, nightly encrypted backups to Drive with 14-day retention, custom certificate and attendance plugins, an admin guide for the ops team, and scripted install and hardening so the whole thing can be rebuilt from the repo.
 
 ### Lead and growth infrastructure
@@ -39,7 +39,7 @@ Production LMS on a hardened Ubuntu VPS in India, serving institution-branded pr
 A sub-300ms redirect service that distributes inbound leads to counsellors. Replaced a percentage-based rotator with a least-recently-booked algorithm that reads the latest confirmed Calendly booking from Airtable, so counsellors with different conversion rates still get a fair share of actual bookings. Ops can add or pause a counsellor in Airtable with zero deploys. Documented with an operator runbook, failure modes, and performance targets.
 
 **Program landing pages** · Static HTML, Tailwind, Supabase, Superleap CRM · private
-Conversion-focused landing pages for IIT Patna, IIM Trichy, NITK, and IIT Jammu programs. No framework and no build step, so any team member can edit them. Every form posts to a self-hosted Supabase instance as the system of record, and a Postgres trigger forwards each lead to the CRM. Undelivered leads can be replayed. Pages ship with thank-you flows, policy pages, and campus sections.
+Conversion-focused landing pages for partner-institution programs. No framework and no build step, so any team member can edit them. Every form posts to a self-hosted Supabase instance as the system of record, and a Postgres trigger forwards each lead to the CRM. Undelivered leads can be replayed. Pages ship with thank-you flows, policy pages, and campus sections.
 
 **Certificate Verification Platform** · React, Vite, Supabase Edge Functions · private
 Public verification portal plus admin dashboard for issuing digital certificates. Bulk CSV import, webhook-triggered generation, and per-program branding.
