@@ -2,7 +2,7 @@
 
 **I run executive education and professional certification programs, and I build the software that runs them.**
 
-Most of what I ship lives in private repositories because it carries learner data, institution branding, and partner integrations that I cannot open-source. This page is the tour of what is behind the wall.
+Most of what I ship lives in private repositories because it carries learner data, institution branding, and partner integrations that cannot be open-sourced. This page is the tour of what is behind the wall.
 
 ---
 
@@ -40,6 +40,9 @@ A sub-300ms redirect service that distributes inbound leads to counsellors. Repl
 
 **Program landing pages** · Static HTML, Tailwind, Supabase, Superleap CRM · private
 Conversion-focused landing pages for partner-institution programs. No framework and no build step, so any team member can edit them. Every form posts to a self-hosted Supabase instance as the system of record, and a Postgres trigger forwards each lead to the CRM. Undelivered leads can be replayed. Pages ship with thank-you flows, policy pages, and campus sections.
+
+**Scholarship Funnel** · React, Vite, Supabase Edge Functions, Google Sheets · private
+A complete lead funnel for an online degree offer: landing page, qualifying quiz, countdown and sticky mobile CTA, lead capture to Sheets and Supabase, and a built-in email sequence builder with open and click tracking, all managed from a small admin screen.
 
 **Certificate Verification Platform** · React, Vite, Supabase Edge Functions · private
 Public verification portal plus admin dashboard for issuing digital certificates. Bulk CSV import, webhook-triggered generation, and per-program branding.
@@ -87,11 +90,14 @@ A set of smaller internal apps: cohort pulse surveys, a skill navigator for pros
 
 ---
 
-## Public repositories worth opening
+## Public repositories
 
-- [agentrelay](https://github.com/ShreySigh2912/agentrelay): AI agent gateway for WhatsApp, Telegram, and Discord
-- [mcube-call-processor](https://github.com/ShreySigh2912/mcube-call-processor): call transcription and analysis pipeline
-- [jo-scholarship-funnel](https://github.com/ShreySigh2912/jo-scholarship-funnel): scholarship application funnel
+Two of the tools above are open source. Both are small enough to read in an afternoon.
+
+- [agentrelay](https://github.com/ShreySigh2912/agentrelay): self-hosted AI agent gateway for WhatsApp, Telegram, and Discord, published on npm as `@shrey_singh/agentrelay`
+- [mcube-call-processor](https://github.com/ShreySigh2912/mcube-call-processor): call-recording transcription and analysis pipeline
+
+Everything else on this page is private. If you would like a walkthrough of any of it, get in touch.
 
 ---
 
